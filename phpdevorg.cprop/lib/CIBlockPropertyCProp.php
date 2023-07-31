@@ -21,9 +21,9 @@ class CIBlockPropertyCProp
             'GetLength' => array(__CLASS__, 'GetLength'),
             'GetPublicViewHTML' => array(__CLASS__, 'GetPublicViewHTML'),
 
-			"USER_TYPE_ID" => "customhtml",
-			"CLASS_NAME" => "CCustomTypeHtml",
-			"BASE_TYPE" => "string",
+            "USER_TYPE_ID" => "customhtml",
+            "CLASS_NAME" => "CCustomTypeHtml",
+            "BASE_TYPE" => "string",
         );
     }
 
@@ -361,8 +361,8 @@ class CIBlockPropertyCProp
         return $result;
     }
 
-	private static function GetEditFormHTML($code, $title, $arValue, $strHTMLControlName)
-	{
+    private static function GetEditFormHTML($code, $title, $arValue, $strHTMLControlName)
+    {
         $result = '';
 
         $v = !empty($arValue['VALUE'][$code]) ? $arValue['VALUE'][$code] : '';
@@ -377,33 +377,33 @@ class CIBlockPropertyCProp
 		else
 			$name = $arHtmlControl["NAME"];
 */
-		ob_start();
+        ob_start();
 
-		$name = "EDITOR_TEXT";
-		$rowHeight = 8;
+        $name = "EDITOR_TEXT";
+        $rowHeight = 8;
 
-		CFileMan::AddHTMLEditorFrame(
-			$name,
-			$v,
-			$name."_TYPE",
-			"text",
-			array(
-				'height' => $rowHeight*10,
-			)
-		);
+        CFileMan::AddHTMLEditorFrame(
+            $name,
+            $v,
+            $name."_TYPE",
+            "text",
+            array(
+                'height' => $rowHeight*10,
+            )
+        );
 
-		$html = ob_get_contents();
-		ob_end_clean();
+        $html = ob_get_contents();
+        ob_end_clean();
 
         $result .= '<tr>
                     <td align="right" valign="top">'.$title.': </td>
                     <td>'.$html.'</td>
                 </tr>';
-		$result .= '<script>
+        $result .= '<script>
                     $("#bxed_EDITOR_TEXT").attr("name", "'.$strHTMLControlName['VALUE'].'['.$code.']");
                 </script>';
-		return $result; 
-	}
+        return $result; 
+    }
 
     private static function showCss()
     {
