@@ -7,7 +7,7 @@ class CIBlockPropertyCProp
     private static $showedCss = false;
     private static $showedJs = false;
 
-    public function GetUserTypeDescription()
+    public static function GetUserTypeDescription()
     {
         return array(
             'PROPERTY_TYPE' => 'S',
@@ -27,7 +27,7 @@ class CIBlockPropertyCProp
         );
     }
 
-    public function GetPropertyFieldHtml($arProperty, $value, $strHTMLControlName)
+    public static function GetPropertyFieldHtml($arProperty, $value, $strHTMLControlName)
     {
         $hideText = Loc::getMessage('IEX_CPROP_HIDE_TEXT');
         $clearText = Loc::getMessage('IEX_CPROP_CLEAR_TEXT');
@@ -181,7 +181,7 @@ class CIBlockPropertyCProp
     }
 
     // Записывает данные в БД
-    public function ConvertToDB($arProperty, $arValue)
+    public static function ConvertToDB($arProperty, $arValue)
     {
         $arFields = self::prepareSetting($arProperty['USER_TYPE_SETTINGS']);
 
@@ -210,7 +210,7 @@ class CIBlockPropertyCProp
     }
 
     // Получает данные из БД
-    public function ConvertFromDB($arProperty, $arValue)
+    public static function ConvertFromDB($arProperty, $arValue)
     {
         $return = array();
 
